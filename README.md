@@ -10,7 +10,7 @@
 </p‌>
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/im-JvD/Rebecca-Template/total?style=flat-square&color=green&label=Installs" alt="Total Installs" />
+  <img src="https://img.shields.io/github/downloads/XiliService/Rebecca-Template/total?style=flat-square&color=green&label=Installs" alt="Total Installs" />
  
   <img src="https://img.shields.io/badge/Panel-Rebecca%20%7C%20Marzban-orange?style=flat-square" alt="Platform" />
   
@@ -27,7 +27,7 @@
 <p align="center">
   <br>
   <a href="https://xraytemplate.github.io/Rebecca-Demo/">
-    <img src="https://raw.githubusercontent.com/im-JvD/Rebecca-Template/refs/heads/main/Photos/Demo.png" width="1080px" alt="پیش‌نمایش قالب" />
+    <img src="https://raw.githubusercontent.com/XiliService/Rebecca-Template/refs/heads/main/Photos/Demo.png" width="1080px" alt="پیش‌نمایش قالب" />
   </a>
   <br>
 </p‌>
@@ -39,7 +39,7 @@
 برای اجرا و نصب، کافیه که دستور پایین رو داخل ترمینال اجرا کنید تا **به‌صورت خودکار نصب و راه‌اندازی شود** 
 
 ```
-curl -fsSL https://github.com/im-JvD/Rebecca-Template/releases/download/Stable-Version/installer.sh | bash
+curl -fsSL https://github.com/XiliService/Rebecca-Template/releases/download/Stable-Version/installer.sh | bash
 ```
 <br>
 
