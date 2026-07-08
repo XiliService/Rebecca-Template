@@ -39,7 +39,7 @@
 برای اجرا و نصب، کافیه که دستور پایین رو داخل ترمینال اجرا کنید تا **به‌صورت خودکار نصب و راه‌اندازی شود** 
 
 ```
-curl -fsSL https://github.com/XiliService/Rebecca-Template/releases/download/Stable-Version/installer.sh | bash
+curl -fsSL https://github.com/XiliService/Rebecca-Template/releases/download/scripts/installer.sh | bash
 ```
 <br>
 
