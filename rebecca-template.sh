@@ -3,7 +3,7 @@
 REBECCA_DIR="/opt/rebecca"
 ENV_FILE="$REBECCA_DIR/.env"
 TEMPLATE_DIR="/var/lib/rebecca/templates/subscription"
-GITHUB_API_URL="https://api.github.com/repos/im-JvD/Rebecca-Template/contents/Templates"
+GITHUB_API_URL="https://api.github.com/repos/XiliService/Rebecca-Template/contents/Templates"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -33,7 +33,7 @@ trap show_exit_msg EXIT
 draw_header() {
     clear
     echo ""
-    echo -e "    ${CYAN}https://github.com/im-JvD/Rebecca-Template${NC}"
+    echo -e "    ${CYAN}https://github.com/XiliService/Rebecca-Template${NC}"
     echo ""
     echo -e "${WHITE}===================================================${NC}"
     echo -e "  Install ${MAGENTA}Subscription Template${NC} for ${GREEN}Rebecca${NC} ${WHITE}Panel${NC}"
@@ -117,7 +117,7 @@ except Exception as e:
             SELECTED_TEMPLATE="${TEMPLATE_ARRAY[$((TEMPLATE_CHOICE-1))]}"
             echo -e "${CYAN}[*] You selected: $SELECTED_TEMPLATE${NC}"
             
-            TEMPLATE_RAW_URL="https://raw.githubusercontent.com/im-JvD/Rebecca-Template/main/Templates/${SELECTED_TEMPLATE}/index.html"
+            TEMPLATE_RAW_URL="https://raw.githubusercontent.com/XiliService/Rebecca-Template/main/Templates/${SELECTED_TEMPLATE}/index.html"
             
             echo -e "${YELLOW}[*] Downloading $SELECTED_TEMPLATE to $TEMPLATE_DIR...${NC}"
             
