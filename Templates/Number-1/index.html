@@ -498,17 +498,42 @@
             window.location.href = scheme + encodeURIComponent(subLink);
         }
 		
-		// Search latest version v2rayNG on github
+		// Search latest version v2rayNG on github (No Universal - Auto Fallback)
 		function fetchLatestV2rayNG() {
 			const dlButton = document.getElementById("v2rayng-dl-btn");
 			if (!dlButton) return;
+
+			// پیش‌فرض: پردازنده ۶۴ بیتی که روی 99 درصد گوشی‌های فعلی نصب است
+			let arch = "arm64-v8a"; 
+			const ua = navigator.userAgent.toLowerCase();
+
+			// بررسی معماری برای گوشی‌های قدیمی یا شبیه‌سازها (اگر در مرورگر قابل خواندن باشد)
+			if (ua.includes("x86_64")) {
+				arch = "x86_64";
+			} else if (ua.includes("x86")) {
+				arch = "x86";
+			} else if (ua.includes("armeabi") || ua.includes("armv7")) {
+				arch = "armeabi-v7a";
+			}
 
 			fetch("https://api.github.com/repos/2dust/v2rayNG/releases/latest")
 				.then(response => response.json())
 				.then(data => {
 					if (data && data.assets) {
-						const matchedAsset = data.assets.find(asset => asset.name.endsWith("_universal.apk"));
+						// مرحله اول: جستجوی فایلی که دقیقاً با معماری (مثلا arm64) تطابق دارد
+						let matchedAsset = data.assets.find(asset => asset.name.includes(arch) && asset.name.endsWith(".apk"));
 						
+						// مرحله دوم: اگر به دلیل تغییر نام فایل‌ها توسط سازنده پیدا نشد، به زور فایل arm64 را بگیر
+						if (!matchedAsset) {
+							matchedAsset = data.assets.find(asset => asset.name.includes("arm64") && asset.name.endsWith(".apk"));
+						}
+						
+						// مرحله سوم: اگر اصلا نسخه arm64 منتشر نشده بود، اولین فایل apk. موجود در گیت‌هاب را بگیر
+						if (!matchedAsset) {
+							matchedAsset = data.assets.find(asset => asset.name.endsWith(".apk"));
+						}
+
+						// جایگذاری لینک دانلود مستقیم در دکمه
 						if (matchedAsset && matchedAsset.browser_download_url) {
 							dlButton.href = matchedAsset.browser_download_url;
 						}
@@ -629,5 +654,3 @@
     </script>
 </body>
 </html>
-
-
